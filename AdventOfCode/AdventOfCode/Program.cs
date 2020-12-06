@@ -33,6 +33,9 @@ namespace AdventOfCode
             List<string> values = fr.ReadLinesFromFile(@".\resources\sample2.txt");
             int validPws = pwv.GetValidCount(values, 1);
             Console.WriteLine($"The list contains {validPws} valid passwords.");
+
+            validPws = pwv.GetValidCount(values, 2);
+            Console.WriteLine($"The list contains {validPws} valid passwords, with the new rules.");
         }
     }
 }

@@ -35,9 +35,14 @@ namespace AdventOfCode
             return i;
         }
 
-        private bool IsValidNewRules(string v1, string v2)
+        public bool IsValidNewRules(string pw, string policy)
         {
-            throw new NotImplementedException();
+            string[] pol = policy.Split(' ');
+            int first = int.Parse(pol[0].Split('-')[0].Trim());
+            int sec = int.Parse(pol[0].Split('-')[1].Trim());
+            int o = OccursAt(pw, first, sec, Char.Parse(pol[1]));
+
+            return o == 1;
         }
 
         public bool IsValid(string pw, string policy)
@@ -60,6 +65,20 @@ namespace AdventOfCode
                 {
                     o++;
                 }
+            }
+            return o;
+        }
+
+        private int OccursAt(string str, int pos1, int pos2, char c)
+        {
+            int o = 0;
+            if (str[pos1 - 1] == c)
+            {
+                o++;
+            }
+            if (str[pos2 - 1] == c)
+            {
+                o++;
             }
             return o;
         }
