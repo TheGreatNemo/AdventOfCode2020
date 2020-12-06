@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AdventOfCode
 {
@@ -6,7 +7,13 @@ namespace AdventOfCode
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            FileReader fr = new FileReader();
+            Calculator calc = new Calculator();
+
+            List<decimal> values = fr.ReadDecFromListFile(@".\resources\sample1.txt");
+
+            decimal[] summands = calc.GetSummands(values, 2020);
+            Console.WriteLine($"The Values {summands[0]} and {summands[1]} result in {summands[0] * summands[1]}");
         }
     }
 }
