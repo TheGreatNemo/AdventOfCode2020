@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AdventOfCodeTest
 {
-    public class Tests
+    public class TestCalculator
     {
         private Calculator calc;
 

@@ -48,5 +48,21 @@ namespace AdventOfCode
             }
             return contence;
         }
+
+        internal List<string> ReadLinesFromFile(string path)
+        {
+            List<string> contence = new List<string>();
+            if (File.Exists(path))
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    while (sr.Peek() >= 0)
+                    {
+                        contence.Add(sr.ReadLine());
+                    }
+                }
+            }
+            return contence;
+        }
     }
 }
