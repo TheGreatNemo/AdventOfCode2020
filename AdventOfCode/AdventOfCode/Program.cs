@@ -12,8 +12,11 @@ namespace AdventOfCode
 
             List<decimal> values = fr.ReadDecFromListFile(@".\resources\sample1.txt");
 
-            decimal[] summands = calc.GetSummands(values, 2020);
+            decimal[] summands = calc.GetTwoSummands(values, 2020);
             Console.WriteLine($"The Values {summands[0]} and {summands[1]} result in {summands[0] * summands[1]}");
+
+            summands = calc.GetThreeSummands(values, 2020);
+            Console.WriteLine($"The Values {summands[0]} and {summands[1]} and {summands[2]} result in {summands[0] * summands[1] * summands[2]}");
         }
     }
 }

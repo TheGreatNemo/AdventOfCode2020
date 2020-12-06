@@ -15,7 +15,7 @@ namespace AdventOfCodeTest
         }
 
         [Test]
-        public void Test1()
+        public void GetTowSummandsTest()
         {
             decimal target = 2020;
 
@@ -29,9 +29,30 @@ namespace AdventOfCodeTest
                 1456
             };
 
-            decimal[] result = calc.GetSummands(values, target);
+            decimal[] result = calc.GetTwoSummands(values, target);
             Assert.That(1721 == result[0]);
             Assert.That(299 == result[1]);
+        }
+
+        [Test]
+        public void GetThreeSummandsTest()
+        {
+            decimal target = 2020;
+
+            List<decimal> values = new List<decimal>()
+            {
+                1721,
+                979,
+                366,
+                299,
+                675,
+                1456
+            };
+
+            decimal[] result = calc.GetThreeSummands(values, target);
+            Assert.That(979 == result[0]);
+            Assert.That(366 == result[1]);
+            Assert.That(675 == result[2]);
         }
     }
 }
