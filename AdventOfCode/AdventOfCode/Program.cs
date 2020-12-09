@@ -10,6 +10,7 @@ namespace AdventOfCode
             Dec1();
             Dec2();
             Dec3();
+            Dec4();
         }
 
         private static void Dec1()
@@ -62,6 +63,17 @@ namespace AdventOfCode
             Console.WriteLine($"The 5. sleed will hit: {r5} trees.");
 
             Console.WriteLine($"The result of multiplying is : {r1 * r2 * r3 * r4 * r5}.");
+        }
+
+        private static void Dec4()
+        {
+            FileReader fr = new FileReader();
+            IDValidator idv = new IDValidator();
+
+            List<string> values = fr.ReadLinesFromFile(@".\resources\sample4.txt");
+            int valid = idv.GetNrOfValidIds(values);
+
+            Console.WriteLine($"There are {valid} valid IDs.");
         }
     }
 }
