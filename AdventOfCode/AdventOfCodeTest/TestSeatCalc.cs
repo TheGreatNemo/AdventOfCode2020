@@ -36,5 +36,18 @@ namespace AdventOfCodeTest
             };
             Assert.AreEqual(820, sc.GetHighestSeatNr(list));
         }
+
+        [TestCase("FBFBBFFRLR", 357)]
+        [TestCase("BFFFBBFRRR", 567)]
+        [TestCase("FFFBBBFRRR", 119)]
+        [TestCase("BBFFBBFRLL", 820)]
+        public void GetTakenTest(string str, int result)
+        {
+            List<string> list = new List<string>()
+            {
+                str
+            };
+            Assert.AreNotEqual(result, sc.GetFreeSeats(list));
+        }
     }
 }

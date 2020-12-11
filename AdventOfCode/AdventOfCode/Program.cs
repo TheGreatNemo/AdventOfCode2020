@@ -84,8 +84,15 @@ namespace AdventOfCode
 
             List<string> values = fr.ReadLinesFromFile(@".\resources\sample5.txt");
             int valid = sc.GetHighestSeatNr(values);
+            List<int> free = sc.GetFreeSeats(values);
 
             Console.WriteLine($"Highest seat ID is: {valid}.");
+            Console.WriteLine($"The free seats are:");
+
+            for (int i = 0; i < free.Count; i++)
+            {
+                Console.WriteLine($": {free[i]}.");
+            }
         }
     }
 }

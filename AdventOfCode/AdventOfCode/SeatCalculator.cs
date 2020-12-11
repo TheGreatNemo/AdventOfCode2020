@@ -17,6 +17,32 @@ namespace AdventOfCode
             seat = 8;
         }
 
+        public List<int> GetFreeSeats(List<string> list)
+        {
+            List<int> taken = new List<int>();
+            List<int> free = new List<int>();
+
+            foreach (string s in list)
+            {
+                taken.Add(GetSeatID(s));
+            }
+
+            int highestID = GetHighestSeatNr(list);
+            for (int i = 0; i < 127 * 8 + 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    int id = i * 8 + j;
+                    if (!taken.Contains(id) && id > 8 && taken.Contains(id + 1) && taken.Contains(id - 1) && id < highestID)
+                    {
+                        free.Add(id);
+                    }
+                }
+            }
+
+            return free;
+        }
+
         public int GetHighestSeatNr(List<string> list)
         {
             int highestID = 0;
