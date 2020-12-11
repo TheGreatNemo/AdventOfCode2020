@@ -12,6 +12,7 @@ namespace AdventOfCode
             Dec3();
             Dec4();
             Dec5();
+            Dec6();
         }
 
         private static void Dec1()
@@ -93,6 +94,17 @@ namespace AdventOfCode
             {
                 Console.WriteLine($": {free[i]}.");
             }
+        }
+
+        private static void Dec6()
+        {
+            FileReader fr = new FileReader();
+            DeclarationFormChecker dfc = new DeclarationFormChecker();
+
+            List<string> values = fr.ReadLinesFromFile(@".\resources\sample6.txt");
+            int valid = dfc.GetMatchingSum(values);
+
+            Console.WriteLine($"Sum is: {valid}.");
         }
     }
 }
