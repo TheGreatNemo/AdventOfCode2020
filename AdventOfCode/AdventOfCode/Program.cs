@@ -11,6 +11,7 @@ namespace AdventOfCode
             Dec2();
             Dec3();
             Dec4();
+            Dec5();
         }
 
         private static void Dec1()
@@ -74,6 +75,17 @@ namespace AdventOfCode
             int valid = idv.GetNrOfValidIds(values);
 
             Console.WriteLine($"There are {valid} valid IDs.");
+        }
+
+        private static void Dec5()
+        {
+            FileReader fr = new FileReader();
+            SeatCalculator sc = new SeatCalculator();
+
+            List<string> values = fr.ReadLinesFromFile(@".\resources\sample5.txt");
+            int valid = sc.GetHighestSeatNr(values);
+
+            Console.WriteLine($"Highest seat ID is: {valid}.");
         }
     }
 }
