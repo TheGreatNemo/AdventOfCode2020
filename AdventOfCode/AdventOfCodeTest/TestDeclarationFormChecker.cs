@@ -37,7 +37,7 @@ namespace AdventOfCodeTest
                 "b"
             };
 
-            Assert.AreEqual(11, dfc.GetMatchingSum(list));
+            Assert.AreEqual(6, dfc.GetMatchingSum(list));
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace AdventOfCodeTest
                 "abd"
             };
 
-            Assert.AreEqual(4, dfc.GetMatching(list));
+            Assert.AreEqual(2, dfc.GetMatching(list));
         }
     }
 }

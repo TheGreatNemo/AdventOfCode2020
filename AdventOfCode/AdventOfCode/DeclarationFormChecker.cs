@@ -43,7 +43,7 @@ namespace AdventOfCode
                 string a = p;
                 while (a.Length > 0)
                 {
-                    if (!q.Contains(a.First()))
+                    if (ByEveryone(a.First(), group) && !q.Contains(a.First()))
                     {
                         q.Add(a.First());
                     }
@@ -51,6 +51,19 @@ namespace AdventOfCode
                 }
             }
             return q.Count;
+        }
+
+        private bool ByEveryone(char c, List<String> group)
+        {
+            bool result = true;
+            foreach (string s in group)
+            {
+                if (!s.Contains(c))
+                {
+                    result = false;
+                }
+            }
+            return result;
         }
     }
 }

@@ -104,7 +104,7 @@ namespace AdventOfCode
             List<string> values = fr.ReadLinesFromFile(@".\resources\sample6.txt");
             int valid = dfc.GetMatchingSum(values);
 
-            Console.WriteLine($"Sum is: {valid}.");
+            Console.WriteLine($"Sum is for questions, everyone answered with yes in a group is: {valid}.");
         }
     }
 }
