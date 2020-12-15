@@ -13,6 +13,7 @@ namespace AdventOfCode
             Dec4();
             Dec5();
             Dec6();
+            Dec7();
         }
 
         private static void Dec1()
@@ -105,6 +106,17 @@ namespace AdventOfCode
             int valid = dfc.GetMatchingSum(values);
 
             Console.WriteLine($"Sum is for questions, everyone answered with yes in a group is: {valid}.");
+        }
+
+        private static void Dec7()
+        {
+            FileReader fr = new FileReader();
+            BagMixer bgm = new BagMixer();
+
+            List<string> values = fr.ReadLinesFromFile(@".\resources\sample7.txt");
+            int valid = bgm.GetNrBagsContaining("shiny gold", values);
+
+            Console.WriteLine($"Combination of bags, containing shiny golden bags: {valid}.");
         }
     }
 }
