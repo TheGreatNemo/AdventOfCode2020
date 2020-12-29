@@ -8,9 +8,39 @@ namespace AdventOfCode
 {
     public class BagMixer
     {
-        public int GetInceptionLevel(List<string> list)
+        public int RecursiveCount(string bag, List<string> list)
         {
-            return 0;
+            string line = GetLine(list, bag);
+
+            int count = 0;
+
+            var containingBags = GetContatiningBags(line);
+
+            if (containingBags.Count == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                foreach (KeyValuePair<string, int> pair in containingBags)
+                {
+                    count += pair.Value;
+                    count += pair.Value * RecursiveCount(pair.Key, list);
+                }
+            }
+            return count;
+        }
+
+        public string GetLine(List<string> list, string bag)
+        {
+            foreach (string line in list)
+            {
+                if (line.StartsWith($"{bag} bags contain"))
+                {
+                    return line;
+                }
+            }
+            return string.Empty;
         }
 
         public int GetNrBagsContaining(string b, List<string> list)
@@ -47,8 +77,14 @@ namespace AdventOfCode
 
         public Dictionary<string, int> GetContatiningBags(string line)
         {
+            if (line == string.Empty)
+            {
+                return new Dictionary<string, int>();
+            }
+
             Dictionary<string, int> c = new Dictionary<string, int>();
             string[] parts = line.Split("contain");
+
             if (parts[1].Trim() == "no other bags.")
             {
                 return c;

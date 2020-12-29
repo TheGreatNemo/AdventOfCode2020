@@ -117,6 +117,10 @@ namespace AdventOfCode
             int valid = bgm.GetNrBagsContaining("shiny gold", values);
 
             Console.WriteLine($"Combination of bags, containing shiny golden bags: {valid}.");
+
+            valid = bgm.RecursiveCount("shiny gold", values);
+
+            Console.WriteLine($"The inception level is: {valid}.");
         }
     }
 }
